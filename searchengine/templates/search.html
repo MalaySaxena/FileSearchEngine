@@ -1,0 +1,100 @@
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SearchFile</title>
+    <link rel="stylesheet" href="{% static 'admin/css/base.css' %}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<center>
+<body>
+<b><h2><label for="search">Search Bar</label></h2></b>
+    <form action = "" method = "GET">
+        <input id="search" type="text" name="search" placeholder="Search...">
+        <input type="submit" value="Find">
+    </form>
+    <p>
+        .
+        .
+    </p>
+    <h4>
+    {% if keys %}
+        {% for key in keys %}
+            <label>| {{key}} </label>
+        {% endfor %}
+        <label> |</label>
+    {% endif %}
+    </h4>
+    <p>
+        .
+        .
+    </p>
+    <h4>
+    {% if notmatch %}
+        {{ notmatch }}
+    {% endif %}
+    {% if empty %}
+        {{ empty }}
+    {% endif %}
+    {% if bestresult %}
+    </h4>
+    <div><h2>Best Results</h2></div>
+        <b><div align="left">
+            Total matches : {{ bestsize }}
+        </div></b>
+        <div class="table-responsive">
+            <table class="table table-striped" id="fileTableBest">
+                <thead>
+                <tr>
+                    <th style="width: 80%" scope="col">File Name</th>
+                    <th style="width: 20%" scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for file in bestfiles %}
+                <tr>
+                    <td>
+                        {{ file }}
+                    </td>
+                    <th>
+                        <a target="_blank" href="download/{{file}}">VIEW</a>
+                    </th>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+
+    {% if anyresult %}
+    <div><h2>Other Results</h2></div>
+        <b><div align="left">
+            Total matches : {{ anysize }}
+        </div></b>
+        <div class="table-responsive">
+            <table class="table table-striped" id="fileTableOther">
+                <thead>
+                <tr>
+                    <th style="width: 80%" scope="col">File Name</th>
+                    <th style="width: 20%" scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for file in anyfiles %}
+                <tr>
+                    <td>
+                        {{ file }}
+                    </td>
+                    <th>
+                        <a target="_blank" href="download/{{file}}">VIEW</a>
+                    </th>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+</center>
+</body>
+</html>
