@@ -1,0 +1,1 @@
+web: gunicorn searchPDF.wsgi --log-file -
