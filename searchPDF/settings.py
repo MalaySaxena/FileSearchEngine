@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'e140=y9al5yg@ade5(m)xv+zpzd=jp
 #DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['thawing-ocean-66765.herokuapp.com','127.0.0.1']
 
 
 # Application definition
