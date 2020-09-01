@@ -58,7 +58,7 @@ def listPDF(request):
         if pdf_any:
             context['anyfiles'] = pdf_any
             context['anyresult'] = True
-            context['anysize'] = len(list_of_any_pdfs)
+            context['anysize'] = len(pdf_any)
 
     return render(request, 'search.html', context)
 
